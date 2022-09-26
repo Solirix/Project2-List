@@ -9,6 +9,7 @@
    This is the header file to accompany LstStack.cpp.  They provide the
    LstStackClass, a list-based implementation of a stack.
 */
+#pragma once
 
 #include "list.h"
 

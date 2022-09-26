@@ -10,6 +10,8 @@
    supply ListClass as shown below.
 */
 
+#pragma once
+
 #include "listnode.h"
 
 

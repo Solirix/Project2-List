@@ -17,6 +17,7 @@
 */
 
 #include "list.h"
+#include <string>
 
 
 /* Given:  Nothing.
@@ -76,7 +77,8 @@ void ListClass::ClearList(void)
    Task:   To allocate a new node and place Item and NextPtr in it.
    Return: A pointer to the new node is returned in the function name.
 */
-ListNodePtr ListClass::GetNode(const ItemType &amp; Item, ListNodePtr NextPtr)
+
+ListNodePtr ListClass::GetNode(const ItemType& Item, ListNodePtr NextPtr)
    {
    ListNodePtr NodePtr;
    string junk;

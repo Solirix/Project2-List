@@ -15,14 +15,11 @@
 */
 
 // The following keeps ItemType.h from being included more than once:
-#ifndef ITEMTYPE_H
-#define ITEMTYPE_H
+#pragma once
+
 
 #include <iostream>
 using namespace std;
 
 typedef float ItemType;
-
-#endif
-
 
