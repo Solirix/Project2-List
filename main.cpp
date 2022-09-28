@@ -1,53 +1,28 @@
-/* Filename:  reverse.cpp
+/* Filename:  main.cpp
 
-   Programmer:  Br. David Carlson
+   Programmer:  Aiden Buterbaugh
 
-   Date:  March 28, 1998
+   Date:  September 28, 2022
 
-   Last Modified:  March 14, 2014
+   Last Modified:  October 2, 2022
 
-   This program prompts the user to enter a sequence of numbers (floats)
-   and then prints them in reverse order.  (Change the CTRL z to CTRL d
-   for Linux.)
+   This program prompts the user to enter a positive, base 10 integer and converts it to base 16 (0 is used to exit).
 
    Tested with:
-      Microsoft Visual Studio 2008
-      Microsoft Visual Studio 2010
       g++ in Linux
 */
 
 #include "lststack.h"
 
 
-int main(void)
-   {
+int main(void) {
    LstStackClass Stack;
-   ItemType Number, Item;
+   int userNum = 1;
 
-   // Change CTRL z to CTRL d for Linux:
-   cout << "Enter a number (CTRL z to end): ";
-   cin >> Number;
-
-   while (! cin.fail())
-      {
-      Stack.Push(Number);
-      // Change CTRL z to CTRL d for Linux:
-      cout << "Enter another number (CTRL z to end): ";
-      cin >> Number;
-      }
-
-   if (Stack.Empty())
-      cout << endl << endl << "Stack is empty" << endl;
-   else
-      {
-      cout << endl << endl << "Numbers in reverse order are:" << endl;
-      while (! Stack.Empty())
-         {
-         Stack.Pop(Item);
-         cout << Item << endl;
-         }
-      }
+   while (userNum != 0) {
+      cout << "Please enter a positive base 10 integer: \n";
+      cin >> userNum;
+   }   
 
    return 0;
-   }
-
+}
