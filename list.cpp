@@ -16,7 +16,7 @@
    This file implements the functions of ListClass (as shown in list.h).
 */
 
-#include "list.h"
+#include "list.hpp"
 #include <string>
 
 

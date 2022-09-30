@@ -12,7 +12,7 @@
       g++ in Linux
 */
 
-#include "lststack.h"
+#include "lststack.hpp"
 
 
 int main(void) {

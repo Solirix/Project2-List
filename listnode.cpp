@@ -11,7 +11,7 @@
    constructor, only the GetInfo function is found here.
 */
 
-#include "listnode.h"
+#include "listnode.hpp"
 
 
 /* Given:  Nothing other than the implicit object.
