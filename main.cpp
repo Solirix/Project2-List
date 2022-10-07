@@ -30,31 +30,3 @@ int main(void) {
 
    return 0;
 }
-
-
-void standardStackDriver(int userInput) {
-    int quotient=userInput;
-    int remainder =-1;
-
-    while (quotient != 0) {
-        quotient = standardStack(quotient);
-        //push the remainder into the stack
-    }
-}
-
-int standardStack(int originalQuotient) {
-    int remainder;
-    int quotient;
-    quotient = originalQuotient/16;
-    if (quotient == 1) {
-        remainder = 0;
-    }
-    else {
-        remainder = originalQuotient - (quotient * 16);
-    }
-    std::cout << "Quotient: " << quotient << std::endl;
-    std::cout << "Remainder: " << remainder << std::endl;
-    std::cout << endl;
-    //push remainder here!
-    return quotient;
-}
