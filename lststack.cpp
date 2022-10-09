@@ -9,7 +9,7 @@
    This file implements the functions of the LstStackClass found in LstStack.h.
 */
 
-#include "lststack.h"
+#include "lststack.hpp"
 
 
 /* Given:  Nothing (other than the implicit LstStackClass object).

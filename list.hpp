@@ -10,7 +10,9 @@
    supply ListClass as shown below.
 */
 
-#include "listnode.h"
+#pragma once
+
+#include "listnode.hpp"
 
 
 class ListClass

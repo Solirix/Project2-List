@@ -12,8 +12,9 @@
    provide ListNodeClass as shown below.  Also provided is the
    ListNodePtr type.
 */
+#pragma once
 
-#include "itemtype.h"
+#include "itemtype.hpp"
 
 
 class ListNodeClass

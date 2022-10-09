@@ -1,53 +1,51 @@
-/* Filename:  reverse.cpp
+/* Filename:  main.cpp
 
-   Programmer:  Br. David Carlson
+   Programmer:  Aiden Buterbaugh
 
-   Date:  March 28, 1998
+   Date:  September 28, 2022
 
-   Last Modified:  March 14, 2014
+   Last Modified:  October 8, 2022
 
-   This program prompts the user to enter a sequence of numbers (floats)
-   and then prints them in reverse order.  (Change the CTRL z to CTRL d
-   for Linux.)
+   This program prompts the user to enter a positive, base 10 integer and converts it to base 16 (0 is used to exit).
 
    Tested with:
-      Microsoft Visual Studio 2008
-      Microsoft Visual Studio 2010
       g++ in Linux
 */
 
-#include "lststack.h"
+#include "lststack.hpp"
 
 
-int main(void)
-   {
+void standardStackDriver(int userInput);
+int standardStack(int originalQuotient);
+
+int main(void) {
    LstStackClass Stack;
-   ItemType Number, Item;
+   int userNum = 1; 
 
-   // Change CTRL z to CTRL d for Linux:
-   cout << "Enter a number (CTRL z to end): ";
-   cin >> Number;
+/*
+getting remainders, putting them on the stack, then popping them off the stack
 
-   while (! cin.fail())
-      {
-      Stack.Push(Number);
-      // Change CTRL z to CTRL d for Linux:
-      cout << "Enter another number (CTRL z to end): ";
-      cin >> Number;
-      }
+user enters any numeber, you divide that mumber by 16 to convert to hex, until you get a quotient of 0. THat is when it stops
 
-   if (Stack.Empty())
-      cout << endl << endl << "Stack is empty" << endl;
-   else
-      {
-      cout << endl << endl << "Numbers in reverse order are:" << endl;
-      while (! Stack.Empty())
-         {
-         Stack.Pop(Item);
-         cout << Item << endl;
-         }
-      }
+ex.
+ 3470     SECRET: JUST DO 3470 mod 16 to get 14!! the remainder!!! (don't forget the next step is 216 mod 16... so on)
+ divide by 16
+ rounds down to 216
+ now take 216, and multiply it by 16 since you divided by 16
+ 3470 - ANSWER to get remainder
+ 14 is remainder for this one. this gets pushed onto the stack - nothing else is done with it
+ 
+   now take 216, divide by 16..
+
+   do this repeatedly until it rounds down to 0, finish it, and do nothing after. that's it!
+
+   now just pop everything off the stack!
+
+
+   NOTE: in hex, 0 through 9 is just the number, but 10 is A, 11 is B, so on... CONVERT ANY DOUBLE DIGIT NUMS TO HEX BEFORE DISPLAYING (all on one line too)
+
+when quotient is 0, remiander ends up being 13.. so most recent stack push should be 13 when finished
+*/
 
    return 0;
-   }
-
+}
