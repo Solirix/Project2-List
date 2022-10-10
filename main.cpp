@@ -15,12 +15,12 @@
 #include "lststack.hpp"
 
 
-void standardStackDriver(int userInput);
-int standardStack(int originalQuotient);
+char convertToHex(int numToConvert);
 
 int main(void) {
    LstStackClass Stack; 
    int userNum = 0;
+   int remainder = 0;
 
 /*
 getting remainders, putting them on the stack, then popping them off the stack
@@ -53,7 +53,7 @@ when quotient is 0, remiander ends up being 13.. so most recent stack push shoul
 
       std::cin >> userNum;
 
-      
+      remainder = userNum % 16;
 
    }
 
@@ -61,4 +61,29 @@ when quotient is 0, remiander ends up being 13.. so most recent stack push shoul
 
 
    return 0;
+}
+
+char convertToHex(int numToConvert) {
+   if (numToConvert == 10) {
+      return 'A';
+   }
+   else if (numToConvert == 11) {
+      return 'B';
+   }
+   else if (numToConvert == 12) {
+      return 'C';
+   }
+   else if (numToConvert == 13) {
+      return 'D';
+   }
+   else if (numToConvert == 14) {
+      return 'E';
+   }
+   else if (numToConvert == 15) {
+      return 'F';
+   }
+   else {
+      std::cout << "ERROR - Remainder is not within the 0-15 range to be converted\n";
+      return 'Z';
+   }
 }
