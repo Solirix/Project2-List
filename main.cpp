@@ -4,7 +4,7 @@
 
    Date:  September 28, 2022
 
-   Last Modified:  October 8, 2022
+   Last Modified:  October 10, 2022
 
    This program prompts the user to enter a positive, base 10 integer and converts it to base 16 (0 is used to exit).
 
@@ -17,6 +17,7 @@
 
 char convertToHex(int numToConvert);
 int calculateRemainder(int parentQuotient);
+void popAndPrint(LstStackClass& Stack);
 
 int main(void) {
    LstStackClass Stack; 
@@ -71,18 +72,16 @@ when quotient is 0, remiander ends up being 13.. so most recent stack push shoul
       do {
 
          remainder = calculateRemainder(quotient);
-         std::cout << "The remainder is " << remainder << endl;
+         std::cout << "The remainder is " << remainder << endl << endl;
+         
+         Stack.Push(remainder);
+         std::cout << "Item pushed to stack!!\n" << endl;
 
          if (remainder > 9) {
             remainderAsHex = convertToHex(remainder);
-            Stack.Push(remainderAsHex);
+            std::cout << remainder << " converted to hex is " << remainderAsHex << endl << endl;
+         }
 
-            std::cout << remainder << " converted to hex is " << remainderAsHex << endl;
-         }
-         else if (remainder < 10) {
-            remainderAsHex = remainder;
-            Stack.Push(remainderAsHex);
-         }
 
          nextQuotient = quotient / 16;
          quotient = nextQuotient;
@@ -90,21 +89,6 @@ when quotient is 0, remiander ends up being 13.. so most recent stack push shoul
       } while (remainder != 0);
 
    }
-
-
-
-
-   if (Stack.Empty() == true) {
-      std::cout << "No remainder calculated!\n";
-   }
-   else {
-      std::cout << "All remainders as hex: \n";
-
-      while (Stack.Empty() != true) {
-         Stack.Pop(remainderAsHex);
-      }
-   }
-
 
 
 
@@ -150,4 +134,18 @@ int calculateRemainder(int quotient) {
       */
 
      return remainder;
+}
+
+void popAndPrint(LstStackClass& Stack) {
+   ItemType Item;
+
+   std::cout << "No remainder calculated!\n"; 
+   std::cout << "All remainders as hex: \n";
+
+   while (Stack.Empty() != true) {
+      Stack.Pop(Item);
+   }
+   
+   
+   
 }
