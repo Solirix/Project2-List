@@ -23,7 +23,6 @@ int main(void) {
    LstStackClass Stack; 
    int userNum = 0;
    int remainder = 0;
-   char remainderAsHex = 'A';
    int quotient, nextQuotient = 0;
 
 /*
@@ -68,28 +67,19 @@ when quotient is 0, remiander ends up being 13.. so most recent stack push shoul
          }
 
 
-
       do {
 
          remainder = calculateRemainder(quotient);
-         std::cout << "The remainder is " << remainder << endl << endl;
          
          Stack.Push(remainder);
-         std::cout << "Item pushed to stack!!\n" << endl;
-
-         if (remainder > 9) {
-            remainderAsHex = convertToHex(remainder);
-            std::cout << remainder << " converted to hex is " << remainderAsHex << endl << endl;
-         }
-
 
          nextQuotient = quotient / 16;
          quotient = nextQuotient;
 
-      } while (remainder != 0);
+      } while (quotient != 0);
 
+      popAndPrint(Stack);
    }
-
 
 
    return 0;
@@ -138,12 +128,19 @@ int calculateRemainder(int quotient) {
 
 void popAndPrint(LstStackClass& Stack) {
    ItemType Item;
-
-   std::cout << "No remainder calculated!\n"; 
+   char remainderAsHex = 'A'; 
    std::cout << "All remainders as hex: \n";
 
    while (Stack.Empty() != true) {
       Stack.Pop(Item);
+      
+      if (Item > 9) {
+         remainderAsHex = convertToHex(Item);
+         std::cout << remainderAsHex << endl;
+      }
+      else {
+         std::cout << Item << endl;
+      }
    }
    
    
