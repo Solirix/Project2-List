@@ -19,8 +19,8 @@ void standardStackDriver(int userInput);
 int standardStack(int originalQuotient);
 
 int main(void) {
-   LstStackClass Stack;
-   int userNum = 1; 
+   LstStackClass Stack; 
+   int userNum = 0;
 
 /*
 getting remainders, putting them on the stack, then popping them off the stack
@@ -46,6 +46,19 @@ ex.
 
 when quotient is 0, remiander ends up being 13.. so most recent stack push should be 13 when finished
 */
+
+
+   for (int i = 0; i >= 0; ++i) {
+      std::cout << "Please enter a positive base 10 integer (or 0 to end the program)\n";
+
+      std::cin >> userNum;
+
+      
+
+   }
+
+
+
 
    return 0;
 }
