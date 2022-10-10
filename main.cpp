@@ -23,6 +23,7 @@ int main(void) {
    int userNum = 0;
    int remainder = 0;
    char remainderAsHex = 'A';
+   int quotient, nextQuotient = 0;
 
 /*
 getting remainders, putting them on the stack, then popping them off the stack
@@ -54,26 +55,40 @@ when quotient is 0, remiander ends up being 13.. so most recent stack push shoul
       std::cout << "Please enter a positive base 10 integer (or 0 to end the program)\n";
       std::cin >> userNum;
 
-      if (userNum == 0) {  // checks for userinput of 0
-         break;           // breaks out of the loop if true
-      }
-      else if (userNum < 0) {
-         std::cout << "Please do not enter a negative integer.\n";
-         break;
-      }
+         if (userNum == 0) {  // checks for userinput of 0
+            break;           // breaks out of the loop if true
+         }
+         else if (userNum < 0) {
+            std::cout << "Please do not enter a negative integer.\n";
+            break;
+         }
+         else {
+            quotient = userNum;
+         }
 
-      remainder = calculateRemainder(userNum);
-      std::cout << "The remainder is " << remainder << endl;
 
-      if (remainder > 9) {
-         remainderAsHex = convertToHex(remainder);
-         Stack.Push(remainderAsHex);
 
-         std::cout << remainder << " converted to hex is " << remainderAsHex << endl;
-      }
-      else {
-         Stack.Push(remainder);
-      }
+      do {
+
+         remainder = calculateRemainder(quotient);
+         std::cout << "The remainder is " << remainder << endl;
+
+         if (remainder > 9) {
+            remainderAsHex = convertToHex(remainder);
+            Stack.Push(remainderAsHex);
+
+            std::cout << remainder << " converted to hex is " << remainderAsHex << endl;
+         }
+         else if (remainder < 10) {
+            remainderAsHex = remainder;
+            Stack.Push(remainderAsHex);
+         }
+
+         nextQuotient = quotient / 16;
+         quotient = nextQuotient;
+
+      } while (remainder != 0);
+
    }
 
 
@@ -84,7 +99,10 @@ when quotient is 0, remiander ends up being 13.. so most recent stack push shoul
    }
    else {
       std::cout << "All remainders as hex: \n";
-      Stack.Pop();
+
+      while (Stack.Empty() != true) {
+         Stack.Pop(remainderAsHex);
+      }
    }
 
 
@@ -118,15 +136,15 @@ char convertToHex(int numToConvert) {
    }
 }
 
-int calculateRemainder(int parentQuotient) {
+int calculateRemainder(int quotient) {
    int remainder = 0;
 
-   remainder = parentQuotient % 16; // calculate the remainder of the user input 
+   remainder = quotient % 16; // calculate the remainder of the user input 
       /*
       This does 
 
-      parentQuotient / 16 = X
-      parentQuotient - X = remainder
+      quotient / 16 = X
+      quotient - X = remainder
       
       and this works because of the way integer division rounds down
       */
